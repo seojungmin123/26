@@ -740,7 +740,7 @@ header{
 			border-radius: 30px;
 			padding: 2em;
 			overflow: hidden;
-            margin: 0 2em;
+            margin: 0 10em;
             img{
                 width: 16em;
                 border-radius: 10px;
@@ -1042,6 +1042,14 @@ footer{
     #program .section-inner{
         grid-template-columns: repeat(3,1fr);
     }
+    .book-item{
+        font-size: 12px;
+        margin: 0 !important;
+        .book-info::before{
+            width: 20em !important;
+            height: 20em !important; 
+        }
+    }
 }
 
 @media(max-width:768px){
@@ -1115,5 +1123,10 @@ footer{
     .book-item{
         font-size: 12px;
         padding: 1em !important;
+        margin: 0;
+        .book-info::before{
+            width: 15em !important;
+            height: 15em !important; 
+        }
     }
 }
