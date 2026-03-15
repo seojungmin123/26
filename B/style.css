@@ -721,36 +721,108 @@ header{
 
 #recommend{
     .section-inner{
-        overflow: hidden;
+        position: relative;
+        height: 35em;
+		overflow: hidden;
     }
     input{
         display: none;
     }
     .book-slider{
-        width: 700%;
-        transition: 0.5s ease-in-out; 
+        width: 1000%;
+        transition: 0.3s ease-in-out;
+        position: absolute;
         .book-item{
             width: 100%;
             display: flex;
-            gap: 4em;
+            gap: 2em;
+			position: relative;
+			border-radius: 30px;
+			padding: 2em;
+			overflow: hidden;
+            margin: 0 2em;
             img{
-                width: 20em;
+                width: 16em;
                 border-radius: 10px;
-                box-shadow: 0 10px 15px rgba(0, 0, 0, 0.2);
+                box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+            }
+            .deco{
+                position: absolute;
+                bottom: 0;
+                right: 0;
+                width: 3em;
+                height: 2em;
+                background-image: radial-gradient(circle, var(--mustard) 2px, transparent 2px);
+                background-size: 10px 10px;
             }
             .book-info{
+                width: 100%;
                 display: flex;
                 flex-direction: column;
                 justify-content: center;
+                position: relative;
+                padding-left: 2em;
+                border-left: 3px solid var(--cream);
                 gap: 1em;
+                h2{font-size: 3em; color: var(--cream);}
                 h3{font-size: 2em; color: var(--dark); margin-bottom: 0.5em;}
                 p{font-size: 1.1em; color: var(--primary);}
                 span{color: var(--accent);}
+                &::before{
+                    content: "";
+                    position: absolute;
+                    border: 2px solid var(--cream);
+                    width: 22em;
+                    height: 22em;
+                    border-radius: 50%;
+                    bottom: -8em;
+                    right: -5em;
+                    z-index: -1;
+                }
+                &::after{
+                    content: "";
+                    position: absolute;
+                    border: 2px solid var(--cream);
+                    width: 10em;
+                    height: 10em;
+                    border-radius: 50%;
+                    top: -8em;
+                    left: 5em;
+                    z-index: -1;
+                }
+            }
+            &::before{
+                position: absolute;
+                left: 0;
+                top: 0;
+                width: 100%;
+                height: 100%;
+                background-color: var(--cream);
+                opacity: 0.3;
+                content: "";
+                z-index: -1;
+            }
+            &::after{
+                content: "";
+                position: absolute;
+                right: 4em;
+                top: 0;
+                background-color: var(--mustard);
+                width: 3em;
+                height: 6em;
+                clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 50% 70%, 0% 100%);
             }
         }
     }
+    .book-slider2 { left: -700%; visibility: hidden; }
 }
 
+.book-controls{
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+}
 .book-prev,
 .book-next{
     display: none;
@@ -768,6 +840,70 @@ header{
         color: var(--white);
     }
 }
+#book1:checked ~ .book-controls .book13-btn,
+#book1:checked ~ .book-controls .book14-btn,
+#book3:checked ~ .book-controls .book1-btn,
+#book3:checked ~ .book-controls .book2-btn,
+#book5:checked ~ .book-controls .book3-btn,
+#book5:checked ~ .book-controls .book4-btn,
+#book7:checked ~ .book-controls .book5-btn,
+#book7:checked ~ .book-controls .book6-btn,
+#book9:checked ~ .book-controls .book7-btn,
+#book9:checked ~ .book-controls .book8-btn,
+#book11:checked ~ .book-controls .book9-btn,
+#book11:checked ~ .book-controls .book10-btn,
+#book13:checked ~ .book-controls .book11-btn,
+#book13:checked ~ .book-controls .book12-btn,
+
+#book2:checked ~ .book-controls .book3-btn,
+#book2:checked ~ .book-controls .book4-btn,
+#book4:checked ~ .book-controls .book5-btn,
+#book4:checked ~ .book-controls .book6-btn,
+#book6:checked ~ .book-controls .book7-btn,
+#book6:checked ~ .book-controls .book8-btn,
+#book8:checked ~ .book-controls .book9-btn,
+#book8:checked ~ .book-controls .book10-btn,
+#book10:checked ~ .book-controls .book11-btn,
+#book10:checked ~ .book-controls .book12-btn,
+#book12:checked ~ .book-controls .book13-btn,
+#book12:checked ~ .book-controls .book14-btn,
+#book14:checked ~ .book-controls .book1-btn,
+#book14:checked ~ .book-controls .book2-btn
+{
+    display: block;
+}
+
+#book1:checked ~ .book-slider1 { left: 0%; }
+#book3:checked ~ .book-slider1 { left: -100%; }
+#book5:checked ~ .book-slider1 { left: -200%;}
+#book7:checked ~ .book-slider1 { left: -300%;}
+
+#book9:checked ~ .book-slider1 { left: -400%; visibility: visible; z-index: 1;}
+#book9:checked ~ .book-slider2 { left: -500%; visibility: hidden; transition: 0.005s;}
+
+#book11:checked ~ .book-slider1 { left: -500%; visibility: hidden; transition: 0.005s;}
+#book11:checked ~ .book-slider2 { left: -500%; visibility: visible; z-index: 1;}
+
+#book13:checked ~ .book-slider1 { left: -600%; visibility: hidden; transition: 0.005s;}
+#book13:checked ~ .book-slider2 { left: -600%; visibility: visible; z-index: 1;}
+
+
+
+#book2:checked ~ .book-slider1 { left: -200%; }
+#book4:checked ~ .book-slider1 { left: -300%; }
+#book6:checked ~ .book-slider1 { left: -400%; }
+
+#book8:checked ~ .book-slider1 { left: -500%; }
+#book8:checked ~ .book-slider2 { left: -500%; }
+
+#book10:checked ~ .book-slider1 { left: 0%; visibility: hidden; transition: 0.005s;}
+#book10:checked ~ .book-slider2 { left: -600%; visibility: visible; z-index: 1;}
+
+#book12:checked ~ .book-slider1 { left: 0%; visibility: hidden; transition: 0.005s; }
+#book12:checked ~ .book-slider2 { left: -700%; visibility: visible; z-index: 1;}
+
+#book14:checked ~ .book-slider1 { left: -100%; visibility: visible; z-index: 1;}
+#book14:checked ~ .book-slider2 { left: -600%; visibility: hidden; transition: 0.005s;}
 
 .book-count{
     font-size: 1.1em;
@@ -780,29 +916,22 @@ header{
     }
 }
 
-
-#book1:checked ~ .book-slider{transform: translateX(0%);}
-#book2:checked ~ .book-slider{transform: translateX(calc(-100%/7));}
-#book3:checked ~ .book-slider{transform: translateX(calc(-200%/7));}
-#book4:checked ~ .book-slider{transform: translateX(calc(-300%/7));}
-#book5:checked ~ .book-slider{transform: translateX(calc(-400%/7));}
-#book6:checked ~ .book-slider{transform: translateX(calc(-500%/7));}
-#book7:checked ~ .book-slider{transform: translateX(calc(-600%/7));}
-
-#book1:checked ~ .book-controls .book1-btn,
-#book2:checked ~ .book-controls .book2-btn,
-#book3:checked ~ .book-controls .book3-btn,
-#book4:checked ~ .book-controls .book4-btn,
-#book5:checked ~ .book-controls .book5-btn,
-#book6:checked ~ .book-controls .book6-btn,
-#book7:checked ~ .book-controls .book7-btn,
 #book1:checked ~ .book-controls .book-count > span:nth-child(1),
-#book2:checked ~ .book-controls .book-count > span:nth-child(2),
-#book3:checked ~ .book-controls .book-count > span:nth-child(3),
+#book3:checked ~ .book-controls .book-count > span:nth-child(2),
+#book5:checked ~ .book-controls .book-count > span:nth-child(3),
+#book7:checked ~ .book-controls .book-count > span:nth-child(4),
+#book9:checked ~ .book-controls .book-count > span:nth-child(5),
+#book11:checked ~ .book-controls .book-count > span:nth-child(6),
+#book13:checked ~ .book-controls .book-count > span:nth-child(7),
+
+#book2:checked ~ .book-controls .book-count > span:nth-child(3),
 #book4:checked ~ .book-controls .book-count > span:nth-child(4),
-#book5:checked ~ .book-controls .book-count > span:nth-child(5),
-#book6:checked ~ .book-controls .book-count > span:nth-child(6),
-#book7:checked ~ .book-controls .book-count > span:nth-child(7){
+#book6:checked ~ .book-controls .book-count > span:nth-child(5),
+#book8:checked ~ .book-controls .book-count > span:nth-child(6),
+#book10:checked ~ .book-controls .book-count > span:nth-child(7),
+#book12:checked ~ .book-controls .book-count > span:nth-child(1),
+#book14:checked ~ .book-controls .book-count > span:nth-child(2)
+{
     display: block;
 }
 
@@ -980,7 +1109,11 @@ footer{
         gap: 5em;
     }
 
+    #recommend > .section-inner{
+        height: 25em;
+    }
     .book-item{
-        padding: 1em;
+        font-size: 12px;
+        padding: 1em !important;
     }
 }
