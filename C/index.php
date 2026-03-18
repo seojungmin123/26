@@ -1,5 +1,5 @@
-<!DOCTYPE php>
-<php lang="ko">
+<!DOCTYPE html>
+<html lang="ko">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -31,132 +31,7 @@
         </div>
     </div> -->
 
-    <!-- 로그인모달 -->
-    <div id="login" class="gap-1" popover="manual">
-	    <div class="login-left">
-	        <h2>스킬스북<br>도서관</h2>
-	        <p>지식과 기술이 만나는<br>특별한 공간</p>
-	    </div>
-	    <div class="login-right">
-	        <div class="f jsb aic">
-	            <h3>로그인</h3>
-	            <button class="close" popovertarget="login">x</button>
-	        </div>
-	        <form action="login.php" method="post" class="w-100 h-100 f-c jsa">
-	            <div class="f-c gap-05">
-	                <label for="id">아이디</label>
-	                <input id="id" type="text" name="userid">
-	            </div>
-	            <div class="f-c gap-05">
-	                <label for="password">비밀번호</label>
-	                <input id="password" type="password" name="password">
-	            </div>
-	            <input type="submit" value="로그인">
-	        </form>
-	    </div>
-	</div>
-
-	<!-- 회원가입모달 -->
-    <div id="signup" class="gap-1" popover="manual">
-	    <div class="login-left signup-left">
-	        <h2>스킬스북<br>도서관</h2>
-	        <p>지식과 기술이 만나는<br>특별한 공간</p>
-	    </div>
-	    <div class="login-right signup-right">
-	        <div class="f jsb aic">
-	            <h3>회원가입</h3>
-	            <button class="close" popovertarget="signup">x</button>
-	        </div>
-	        <form action="signup.php" method="post" class="w-100 h-100 f-c jsa">
-	            <div class="f-c gap-05">
-	                <label for="id">아이디</label>
-	                <input id="id" type="text" name="userid">
-	            </div>
-	            <div class="f-c gap-05">
-	                <label for="password">비밀번호</label>
-	                <input id="password" type="password" name="password">
-	            </div>
-				<div class="f-c gap-05">
-	                <label for="name">이름</label>
-	                <input id="name" type="text" name="username">
-	            </div>
-	            <input type="submit" value="회원가입">
-	        </form>
-	    </div>
-	</div>
-	
-    <header class="w-100">
-        <input type="checkbox" id="hamburger">
-        <div class="header-inner w-100 h-100 f jsb aic m0a">
-            <!-- 로고 -->
-            <h1 class="tac acc"><a href="index.php">스킬스북<br>도서관</a></h1>
-
-            <!-- 네비게이션 -->
-            <ul class="main f h-100">
-                <input type="checkbox" name="mainmenu1" id="mainmenu1">
-                <li class="h-100 f jcc aic">
-                    <label for="mainmenu1">도서관소개
-                        <div></div>
-                        <div></div>
-                    </label>
-                    <ul class="sub">
-                        <li><a href="intro.php">도서관소개</a></li>
-                        <li><a href="#">도서관현황</a></li>
-                    </ul>
-               </li>
-               <input type="checkbox" name="mainmenu2" id="mainmenu2">
-               <li class="h-100 f jcc aic">
-                    <label for="mainmenu2">도서자료실
-                        <div></div>
-                        <div></div>
-                    </label>
-                    <ul class="sub">
-                        <li><a href="#">자료실</a></li>
-                        <li><a href="#">열람실예약</a></li>
-                    </ul>
-               </li>
-               <input type="checkbox" name="mainmenu3" id="mainmenu3">
-               <li class="h-100 f jcc aic">
-                    <label for="mainmenu3">회원서비스
-                        <div></div>
-                        <div></div>
-                    </label>
-                    <ul class="sub">
-                        <li><a href="#">회원가입</a></li>
-                        <li><a href="#">마이페이지</a></li>
-                    </ul>
-               </li>
-               <input type="checkbox" name="mainmenu4" id="mainmenu4">
-               <li class="h-100 f jcc aic">
-                    <label for="mainmenu4">도서관리자
-                        <div></div>
-                        <div></div>
-                    </label>
-                    <ul class="sub">
-                        <li><a href="#">신규도서등록</a></li>
-                        <li><a href="#">대출/열람실<br>업무조회</a></li>
-                    </ul>
-               </li>
-            </ul>
-
-            <!-- 유틸메뉴 -->
-            <div class="util f gap-1 aic">
-                <div class="search">
-                    <input type="text" placeholder="검색">
-                    <i class="fa fa-search"></i>
-                </div>
-                <button class="login" onclick="openLogin()">로그인</button>
-                <button class="signup" onclick="openSignup()">회원가입</button>
-
-                <!-- 햄버거 -->
-                <label for="hamburger" class="hamburger-btn f-c gap-05">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                </label>
-            </div>
-        </div>
-    </header>
+    <?php include 'header.php';?>
 
     <!-- 비주얼 -->
     <section id="visual">
@@ -842,36 +717,6 @@
 		</div>
     </section>
 
-	<!-- 푸터 -->
-    <footer class="w-100">
-        <div class="footer-inner m0a w-100 h-100 f jsa aic">
-            <div class="footer-left f-c gap-1">
-                <h1 class="acc tac"><a href="index.php" class="logo">스킬스북<br>도서관</a></h1>
-                <div class="sns f gap-1">
-                    <a href="#"><img src="images/social icon1.png" alt="sns1" title="sns1"></a>
-                    <a href="#"><img src="images/social icon2.png" alt="sns2" title="sns2"></a>
-                    <a href="#"><img src="images/social icon3.png" alt="sns3" title="sns3"></a>
-                </div>
-            </div>
-            <div class="footer-right">
-                <div class="footer-list f">
-                    <ul class="f-c gap-05">
-                        <li><h2>CONTACT</h2></li>
-                        <li>1644-8000</li>
-                        <li>운영시간(평일)</li>
-                        <li>09:00~18:00</li>
-                    </ul>
-                    <ul class="f-c gap-05">
-                        <li><h2>INFO</h2></li>
-                        <li>인천시 부평구 무네미로 448번길 77</li>
-                        <li>한국산업인력공단 글로벌숙련기술진흥원</li>
-                        <li>운영시간(평일)</li>
-                        <li>COPYRIGHTⓒ 2016 HRDKOREA</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </footer>
-	<script src="script.js"></script>
+	<?php include 'footer.php'; ?>
 </body>
-</php>
+</html>
