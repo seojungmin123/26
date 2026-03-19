@@ -29,3 +29,12 @@ create table loan (
     loan_date date not null,
     return_date date not null
 );
+
+create table reservation (
+    id int auto_increment primary key,
+    user_id varchar(50) not null,
+    seat_no int not null,
+    reserve_date date not null,
+    start_time time not null,
+    end_time time not null
+);

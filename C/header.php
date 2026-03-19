@@ -81,7 +81,7 @@
                     </label>
                     <ul class="sub">
                         <li><a href="library.php">자료실</a></li>
-                        <li><a href="#">열람실예약</a></li>
+                        <li><a href="reserve.php">열람실예약</a></li>
                     </ul>
                </li>
                <input type="checkbox" name="mainmenu3" id="mainmenu3">
