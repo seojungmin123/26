@@ -51,9 +51,6 @@
             }
         }
 
-
-
-        
         .region-label {
             font-weight: bold;
             color: var(--dark);
