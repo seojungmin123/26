@@ -2,7 +2,7 @@
 <html lang="ko">
 <head>
     <meta charset="UTF-8">
-    <title>대출/열람실 업무조회</title>
+    <title>스킬스북도서관</title>
     <link rel="stylesheet" href="fontawesome/css/all.min.css">
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="intro.css">
@@ -25,7 +25,7 @@
         th { background:var(--dark); color:var(--white); }
         tr:hover { background:var(--bg-section); }
         .minus { color:red; }
-        .btn{
+        .btn-return {
             padding:0.4em 1em;
             background:transparent;
             border:1px solid var(--accent);
@@ -41,54 +41,49 @@
 <?php include 'header.php'; ?>
 
 <?php
-if($_SESSION['user_id'] !== 'admin'){
-    echo "<script>alert('접근 권한이 없습니다.'); location.href='index.php';</script>";
-    exit;
-}
+    if(!isset($_SESSION['user_id'])){
+        echo "<script>alert('로그인이 필요합니다.'); location.href='index.php';</script>";
+        exit;
+    }
 ?>
 
 <section id="intro-top">
     <img src="images/images (42).jpg" alt="">
-    <h2>대출/열람실 업무조회</h2>
+    <h2>마이페이지</h2>
 </section>
 
 <section>
-    <h2 class="section-title">도서대출현황</h2>
+    <h2 class="section-title">대출 현황</h2>
     <div class="section-inner">
         <?php
             $today = date('Y-m-d');
-            $loans = mysqli_query($conn, "select l.*, b.title, b.author, b.publisher from loan l left join books b ON l.book_id = b.id order by l.loan_date");
+            $loans = mysqli_query($conn, "select l.*, b.title, b.author, b.image from loan l left join books b ON l.book_id = b.id where l.user_id = '{$_SESSION['user_id']}'");
         ?>
         <table>
             <tr>
+                <th>도서사진</th>
                 <th>도서명</th>
                 <th>저자명</th>
-                <th>출판사</th>
                 <th>대출일자</th>
                 <th>반납일</th>
                 <th>남은기간</th>
-                <th>대출자</th>
                 <th>반납</th>
             </tr>
             <?php while($loan = mysqli_fetch_assoc($loans)): ?>
                 <?php $diff = (int)((strtotime($loan['return_date']) - strtotime($today)) / 86400); ?>
                 <tr>
-                    <td><?= $loan['title'] ?></td>
-                    <td><?= $loan['author'] ?></td>
-                    <td><?= $loan['publisher'] ?></td>
+                    <td><img src="images/<?= $loan['image'] ?>"></td>
+                    <td style="white-space: normal;"><?= $loan['title'] ?></td>
+                    <td style="white-space: normal;"><?= $loan['author'] ?></td>
                     <td><?= $loan['loan_date'] ?></td>
                     <td><?= $loan['return_date'] ?></td>
                     <td class="<?= $diff < 0 ? 'minus' : '' ?>"><?= $diff ?>일</td>
-                    <td><?= $loan['user_id'] ?></td>
                     <td>
-                        <?php if($diff < 0): ?>
-                            <form action="return_process.php" method="post">
-                                <input type="hidden" name="loan_id" value="<?= $loan['id'] ?>">
-                                <input type="hidden" name="book_id" value="<?= $loan['book_id'] ?>">
-                                <input type="hidden" name="redirect" value="check.php">
-                                <button class="btn" type="submit">반납</button>
-                            </form>
-                        <?php endif; ?>
+                        <form action="return_process.php" method="post">
+                            <input type="hidden" name="loan_id" value="<?= $loan['id'] ?>">
+                            <input type="hidden" name="book_id" value="<?= $loan['book_id'] ?>">
+                            <button class="btn-return" type="submit">반납</button>
+                        </form>
                     </td>
                 </tr>
             <?php endwhile; ?>
@@ -97,17 +92,16 @@ if($_SESSION['user_id'] !== 'admin'){
 </section>
 
 <section>
-    <h2 class="section-title">열람실예약현황</h2>
+    <h2 class="section-title">열람실 예약 현황</h2>
     <div class="section-inner">
-        <?php $reserves = mysqli_query($conn, "select * from reservation where (reserve_date > '$today' or (reserve_date = '$today' and end_time > NOW())) order by reserve_date asc"); ?>
+        <?php $reserves = mysqli_query($conn, "select * from reservation where user_id = '{$_SESSION['user_id']}' and (reserve_date > '$today' or (reserve_date = '$today' and end_time > NOW())) order by reserve_date asc"); ?>
         <table>
             <tr>
                 <th>좌석번호</th>
                 <th>예약일</th>
                 <th>시작시간</th>
                 <th>종료시간</th>
-                <th>예약자</th>
-                <th>취소</th>
+                <th>예약자 아이디</th>
             </tr>
             <?php while($r = mysqli_fetch_assoc($reserves)): ?>
                 <tr>
@@ -116,12 +110,6 @@ if($_SESSION['user_id'] !== 'admin'){
                     <td><?= $r['start_time'] ?></td>
                     <td><?= $r['end_time'] ?></td>
                     <td><?= $r['user_id'] ?></td>
-                    <td>
-                        <form action="cancel_process.php" method="post">
-                            <input type="hidden" name="reserve_id" value="<?= $r['id'] ?>">
-                            <button class="btn" type="submit">취소</button>
-                        </form>
-                    </td>
                 </tr>
             <?php endwhile; ?>
         </table>

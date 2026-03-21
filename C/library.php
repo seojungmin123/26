@@ -28,6 +28,7 @@
                 img{
                     width: 100%;
                     height: 12em;
+                    margin-bottom: 0.4em;
                     display: inline-block;
                     object-fit: cover;
                     text-align: center;
@@ -86,7 +87,7 @@
 <body>
     <?php include 'header.php'; ?>
     <section id="intro-top">
-        <img src="images/images (41).jpg" alt="">
+        <img src="images/images (46).jpg" alt="">
         <h2>도서자료실</h2>
     </section>
 
@@ -99,7 +100,7 @@
                     while($book = mysqli_fetch_assoc($books)):
                 ?>
                     <div>
-                        <img src="<?= $book['image'] ?>" alt="<?= $book['image'] ?>">
+                        <img src="images/<?= $book['image'] ?>" alt="">
                         <p class="book-title"><?= $book['title'] ?></p>
                         <p class="book-author"><?= $book['author'] ?></p>
                         <p class="book-meta"><?= $book['pub_year'] ?> &middot; <?= $book['price'] ?> 원</p>
@@ -107,7 +108,7 @@
                             <span class="status y">대출가능</span>
                             <form action="loan_process.php" method="post">
                                 <input type="hidden" name="book_id" value="<?= $book['id'] ?>">
-                                <button class="btn-loan" onclick="loan(<?= $book['id'] ?>)">대출하기</button>
+                                <button class="btn-loan">대출하기</button>
                             </form>
                         <?php else:?>
                             <div><span class="status n">대출중</span><span><?= $book['loan_date'] ?> ~ <?= $book['return_date'] ?></span></div>

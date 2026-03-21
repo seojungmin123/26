@@ -107,7 +107,7 @@ input:checked + .modal-bg{   /* modal-bg > modal-box > modal-header,modal-body,m
     width: 100%;
     height: 100%;
     background: rgba(0,0,0,0.3); 
-    backdrop-filter: blur(6px); /* 주변흐리게 */
+    backdrop-filter: blur(2px); /* 주변흐리게 */
     justify-content: center;
     align-items: center;
     z-index: 1000;
@@ -297,7 +297,7 @@ header{
         width: 7em;
     }
     &:hover .sub{ 
-        height: 8em; /* 서브메뉴 li(4em) 두개 */
+        height: 12em; /* 서브메뉴 li(4em) 두개 */
     }
 }
 
@@ -328,6 +328,10 @@ header{
 
 .main>input:checked + li > .sub{  /* 클릭하면 그 서브메뉴의 최대 높이만 늘림 */
     max-height: 8em;
+}
+
+#mainmenu4:checked + li > .sub{  
+    max-height: 12em;
 }
 .main>input:checked + li>label>div:nth-child(2){  /* - 회전 */
     transform: rotate(0deg);

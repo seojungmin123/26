@@ -38,3 +38,12 @@ create table reservation (
     start_time time not null,
     end_time time not null
 );
+
+create table popup (
+    id int auto_increment primary key,
+    title varchar(255) not null,
+    content text,
+    image varchar(100),
+    start_date date not null,
+    end_date date not null
+)

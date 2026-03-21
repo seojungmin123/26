@@ -70,7 +70,7 @@
                     </label>
                     <ul class="sub">
                         <li><a href="intro.php">도서관소개</a></li>
-                        <li><a href="#">도서관현황</a></li>
+                        <li><a href="map.php">도서관현황</a></li>
                     </ul>
                </li>
                <input type="checkbox" name="mainmenu2" id="mainmenu2">
@@ -92,7 +92,7 @@
                     </label>
                     <ul class="sub">
                         <li><a href="#" onclick="openSignup()">회원가입</a></li>
-                        <li><a href="#">마이페이지</a></li>
+                        <li><a href="mypage.php">마이페이지</a></li>
                     </ul>
                </li>
 			   <?php if(isset($_SESSION['user_id']) && $_SESSION['user_id']==='admin'): ?>
@@ -105,6 +105,7 @@
                     <ul class="sub">
                         <li><a href="book_register.php">신규도서등록</a></li>
                         <li><a href="check.php">대출/열람실<br>업무조회</a></li>
+                        <li><a href="popup.php">팝업관리</a></li>
                     </ul>
                </li>
 			   <?php endif; ?>

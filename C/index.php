@@ -14,24 +14,32 @@
         <p>Loading...</p>
     </div> -->
 
-    <!-- 안내팝업  -->
-    <!-- <input type="checkbox" id="notice-pop" checked>
-    <div class="modal-bg">
-        <div class="modal-box">
-            <div class="modal-header">
-                <h2>2025년 지방기능경기대회 참가원서 접수 공고사항을 아래 같이 알려드립니다.</h2>
-                <label for="notice-pop">x</label>
-            </div>
-            <div class="modal-body"><img src="images/images (3).png" alt="안내팝업이미지" title="안내팝업이미지"></div>
-            <div class="modal-footer">
-                <p>□ 접수기간 : 2025. 1. 13.(월) ~ 1. 24.(금) 18:00 마감 [12일간]</p>
-                <p>□ 대상직종 : 웹디자인및개발 등 48개 직종</p>
-                <p>□ 접수방법 : 마이스터넷 홈페이지 인터넷 접수</p>
-            </div>
-        </div>
-    </div> -->
-
     <?php include 'header.php';?>
+
+	<!-- 안내팝업  -->
+	<?php
+		$today = date('Y-m-d');
+		$popups = mysqli_query($conn, "select * from popup where start_date <= '$today' and end_date >= '$today'");
+		while($popup = mysqli_fetch_assoc($popups)):
+	?>
+		<input type="checkbox" id="popup-<?= $popup['id'] ?>" checked>
+		<div class="modal-bg">
+		    <div class="modal-box">
+		        <div class="modal-header">
+		            <h2><?= $popup['title'] ?></h2>
+		            <label for="popup-<?= $popup['id'] ?>">x</label>
+		        </div>
+		        <?php if($popup['image']): ?>
+					<div class="modal-body">
+						<img src="images/<?= $popup['image'] ?>" alt="팝업이미지">
+					</div>
+		        <?php endif; ?>
+		        <div class="modal-footer">
+		            <p><?= $popup['content'] ?></p>
+		        </div>
+		    </div>
+		</div>
+	<?php endwhile; ?>
 
     <!-- 비주얼 -->
     <section id="visual">

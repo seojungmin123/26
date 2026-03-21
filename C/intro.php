@@ -11,7 +11,7 @@
 <body>
     <?php include 'header.php'; ?>
     <section id="intro-top">
-        <img src="images/images (42).jpg" alt="">
+        <img src="images/images (8).jpg" alt="">
         <h2>도서관소개</h2>
     </section>
 
