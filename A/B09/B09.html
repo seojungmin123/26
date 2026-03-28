@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background-color: #eee;
+        }
+        h1{
+            margin: 20px 0;
+        }
+        .container{
+            width: 600px;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+        .item{
+            width: 100%;
+            padding: 10px;
+            background-color: #fff;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+            border-radius: 5px;
+            position: relative;
+            user-select: none;
+        }
+        .star{
+            position: absolute;
+            right: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 22px;
+            cursor: pointer;
+        }
+        p{
+            font-size: 14px;
+        }
+        .fav{
+            color: rgb(214, 192, 65);
+        }
+    </style>
+</head>
+<body>
+    <h1>즐겨찾기 목록</h1>
+    <div class="container">
+    </div>
+    <script>
+        const container = document.querySelector('.container');
+        let favorites = JSON.parse(localStorage.getItem('fav')) || []; 
+
+        fetch("data.json")
+        .then((res) => res.json()) 
+        .then((data) =>{
+            data.forEach(e => {
+                const isFav = favorites.includes(e.name);
+
+                const item = document.createElement('div');
+                item.className = 'item';
+                item.innerHTML = `<b>${e.name}</b>
+                                <p>${e.desc}</p>
+                                <div class="star ${isFav ? 'fav' : ''}">${isFav ? '★' : '☆'}</div>`;
+                container.appendChild(item);
+
+                const star = item.querySelector('.star');
+                star.addEventListener('click',()=>{
+                    ToggleFav(e.name,star);
+                })
+            });
+        })
+
+        const ToggleFav = (name,star)=>{
+            if(favorites.includes(name)){
+                favorites = favorites.filter(el => el !== name);
+                star.textContent = "☆"
+                star.classList.remove('fav');
+
+            }else{
+                favorites.push(name);
+                star.textContent = "★"
+                star.classList.add('fav');
+            }
+            localStorage.setItem('fav',JSON.stringify(favorites));
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            margin: 0;
+            background-color: #1f1f1f;
+            display: grid;
+            place-content: center;
+            height: 100vh;
+        }
+        .clock{
+            color: #fff;
+            font-size: 70px;
+        }
+    </style>
+</head>
+<body>
+    <div class="clock"></div>
+    <script>
+        const clock = document.querySelector('.clock');
+        const update = ()=>{
+            const now = new Date();
+            const hour = String(now.getHours()).padStart(2,'0');
+            const min = String(now.getMinutes()).padStart(2,'0');
+            const sec = String(now.getSeconds()).padStart(2,'0');
+            
+            const date = `${hour}:${min}:${sec}`;
+            clock.textContent = date;
+        }
+        update();
+        setInterval(update,1000);
+    </script>
+</body>
+</html>

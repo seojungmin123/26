@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            text-align: center;
+            background-color: #eee;
+        }
+        canvas{
+            background-color: #fff;
+            border: 1px solid black;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <h1>전자서명</h1>
+    <canvas width="400" height="200"></canvas>
+    <div class="btns">
+        <button class="del">지우기</button>
+        <button class="save">저장</button>
+    </div>
+    <script>
+        const canvas = document.querySelector('canvas');
+        const ctx = canvas.getContext("2d");
+        let prevPos = [];
+        let isDrawing = false;
+
+        const draw = (x,y)=>{
+            ctx.lineWidth = 3;
+                        
+            ctx.beginPath();
+            ctx.moveTo(prevPos[0],prevPos[1]);
+            ctx.lineTo(x,y);
+            ctx.stroke();
+            prevPos = [x, y];
+        }
+
+        canvas.addEventListener('mousedown',(e)=>{
+            prevPos = [e.offsetX, e.offsetY];
+            isDrawing = true;
+        })
+        canvas.addEventListener('mousemove',(e)=>{
+            if(isDrawing) draw(e.offsetX,e.offsetY);
+        })
+        canvas.addEventListener('mouseup',(e)=>{
+            isDrawing = false;
+        })
+
+        const del = document.querySelector('.del');
+        const save = document.querySelector('.save');
+
+        del.addEventListener('click',()=>{
+            ctx.clearRect(0,0,canvas.width,canvas.height);
+        })
+        save.addEventListener('click',()=>{
+            const link = document.createElement('a');
+            link.href = canvas.toDataURL('image/png');
+            link.download = "sign.png";
+            link.click();
+            link.remove();
+        })
+    </script>
+</body>
+</html>

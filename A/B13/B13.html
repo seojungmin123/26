@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="B13.css">
+</head>
+<body>
+    <div class="container">
+        <video src="test-video.mp4"></video>
+        <div class="progress-bar">
+                <div class="progress-line"></div>
+            </div>
+        <div class="controls">
+            <div class="left">
+                <div class="rewind"><<</div>
+                <div class="btn"></div>
+                <div class="skip">>></div>
+                <div class="current-time">00:00</div>/
+                <div class="total-time">00:00</div>
+            </div>
+            <div class="right">
+                <div class="volume">음소거/해제</div>
+            </div>
+        </div>
+    </div>
+    <script>
+        window.onload = ()=>{
+        const video = document.querySelector('video');
+        const btn = document.querySelector('.btn');
+        const progressLine = document.querySelector('.progress-line');
+        const progressBar = document.querySelector('.progress-bar');
+        const tTime = document.querySelector('.total-time');
+        const cTime = document.querySelector('.current-time');
+
+        let tSec = Math.floor(video.duration % 60);
+        let tMin = Math.floor(video.duration / 60);
+        tTime.textContent = `${tMin.toString().padStart(2,'0')}:${tSec.toString().padStart(2,'0')}`;
+
+        btn.addEventListener('click',()=>{
+            if(video.paused){
+                video.play();
+                btn.classList.add('playing');
+            }else{
+                video.pause();
+                btn.classList.remove('playing');
+            }
+        })
+        document.querySelector('.rewind').addEventListener('click',()=>video.currentTime -= 10);
+        document.querySelector('.skip').addEventListener('click',()=>video.currentTime += 10);
+        document.querySelector('.volume').addEventListener('click',()=>{
+            video.muted = !video.muted;
+        });
+        video.addEventListener('timeupdate',()=>{
+            progressLine.style.width = ((video.currentTime / video.duration) * 100) + '%';
+            let sec = Math.floor(video.currentTime % 60);
+            let min = Math.floor(video.currentTime / 60);
+            cTime.textContent = `${min.toString().padStart(2,'0')}:${sec.toString().padStart(2,'0')}`;
+        })
+        progressBar.addEventListener('click',(e)=>{
+            const v =  e.offsetX / progressBar.clientWidth;
+            video.currentTime = v * video.duration;
+        })
+        }
+    </script>
+</body>
+</html>

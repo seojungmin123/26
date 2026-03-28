@@ -1,0 +1,43 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+li{
+    list-style: none;
+    color: #ccc;
+    margin: 10px 0;
+}
+body{
+    height: 100vh;
+}
+footer{
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+    background-color: rgb(46, 65, 87);
+    color: #ccc;
+}
+.footer-top,.footer-bottom{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 25px;
+}
+.footer-top{
+    height: 200px;
+}
+h2{
+    color: #4ba2e9;
+}
+.list{
+    display: flex;
+    gap: 60px;
+}
+hr{
+    border: none;
+    height: 1px;
+    background-color: #919191;
+}
+b{
+    color: #fff;
+}

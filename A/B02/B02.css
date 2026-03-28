@@ -1,0 +1,56 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+#wrap{
+    width: 300px;
+    margin: 50px auto;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+input{
+    width: 80%;
+    padding: 10px;
+}
+.add{
+    padding: 10px;
+}
+.del{
+    float: right;
+    width: 40px;
+    height: 30px;
+    background-color: red;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    position: absolute;
+    top: 50%;
+    right: 10px;
+    transform: translateY(-50%);
+}
+.list{
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+p{
+    width: 80%;
+    float: left;
+}
+.item{
+    width: 100%;
+    text-align: left;
+    align-content: center;
+    min-height: 50px;
+    padding: 10px;
+    position: relative;
+    background: #eee;
+}
+.container{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}

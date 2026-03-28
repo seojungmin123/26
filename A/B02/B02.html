@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="B02.css">
+</head>
+<body>
+    <div id="wrap">
+        <h1>To-Do 리스트</h1>
+        <div class="container">
+            <input type="text" placeholder="할 일을 입력하세요">
+            <button class="add">추가</button>
+        </div>
+        <div class="list">
+        </div>
+    </div>
+    <script>
+        const dInput = document.querySelector('input');
+        const addBtn = document.querySelector('.add');
+        const list = document.querySelector('.list');
+        addBtn.addEventListener('click',()=>{
+            list.appendChild(createItem(dInput.value));
+            dInput.value = "";
+        })
+
+        const createItem = (text)=>{
+            const item = document.createElement("div");
+            item.className = "item";
+            item.innerHTML = `<p>${text}</p><button class='del'>삭제</button>`;
+            item.querySelector('.del').addEventListener('click', () => {
+                item.remove();
+            });
+            return item;
+        }
+    </script>
+</body>
+</html>

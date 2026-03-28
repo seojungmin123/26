@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body{
+            display: grid;
+            place-content: center;
+            height: 100vh;
+        }
+        .container{
+            width: 400px;
+            height: 400px;
+            padding: 50px;
+            border: 4px dashed;
+            text-align: center;
+            align-content: center;
+        }
+        button{
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">이미지를 여기에 드래그하세요.</div>
+    <button>초기화</button>
+    <script>
+        const container = document.querySelector('.container');
+        const reset = document.querySelector('button');
+
+        container.addEventListener('dragover',(e)=>{
+            e.preventDefault();
+        })
+        container.addEventListener('drop',(e)=>{
+            e.preventDefault();
+            const file = e.dataTransfer.files[0];
+            const img = document.createElement('img');
+
+            img.src = URL.createObjectURL(file);
+
+            container.innerHTML = "";
+            container.appendChild(img);
+        })
+        reset.addEventListener('click',()=>{
+            container.innerHTML = "이미지를 여기에 드래그하세요.";
+        })
+    </script>
+</body>
+</html>

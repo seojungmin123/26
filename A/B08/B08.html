@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        .container{
+            width: 200px;
+            top: 20px;
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            flex-direction: column;
+            gap: 2px;
+        }
+        .notice{
+            text-align: center;
+            align-content: center;
+            width: 100%;
+            border-radius: 50px;
+            padding: 10px;
+            color: #fff;
+            user-select: none;
+            cursor: pointer;
+        }
+        .s{
+            background-color: rgb(119, 197, 119);
+        }
+        .f{
+            background-color: #c29bba;
+        }
+        .btn-container{
+            margin: 20px;
+        }
+        button{
+            width: 60px;
+            height: 30px;
+        }
+    </style>
+</head>
+<body>
+    <div class="btn-container">
+        <button class="btn-s">성공</button>
+        <button class="btn-f">실패</button>
+    </div>
+    <div class="container">
+    </div>
+
+    <script>
+        const container = document.querySelector('.container');
+        const btnContainer = document.querySelector('.btn-container');
+        const btnS = document.querySelector('.btn-s');
+        const btnF = document.querySelector('.btn-f');
+
+        const createNotice = (e, text)=>{
+            const notice = document.createElement('div');
+            notice.className = `notice ${e}`;
+            notice.textContent = text;
+
+            container.appendChild(notice);
+            setTimeout(()=>{
+                notice.remove()
+            },5000);
+
+            notice.addEventListener('click',()=>{
+                notice.remove();
+            })
+        }
+
+        btnS.addEventListener('click',()=>{
+            createNotice("s","성공하였습니다");
+        })
+        btnF.addEventListener('click',()=>{
+            createNotice("f","실패하였습니다");
+        })
+    </script>
+</body>
+</html>

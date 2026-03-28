@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body{
+            padding: 50px;
+            text-align: center;
+            background-color: #eee;
+        }
+        .container{
+            margin: 100px auto;
+            width: 450px;
+            height: 400px;
+            border: 1px solid #a1a1a1;
+            border-radius: 10px;
+        }
+        img{
+            max-width: 600px;
+            max-height: 450px;
+        }
+    </style>
+</head>
+<body>
+    <h1>이미지 편집기</h1>
+    <input type="file">
+    <div class="container">
+        <img src="" alt="">
+    </div>
+    <div class="btns">
+        <button class="left-turn">좌측 회전</button>
+        <button class="right-turn">우측 회전</button>
+        <button class="switch-side">좌우 반전</button>
+        <button class="upside-down">상하 회전</button>
+        <button class="grayscale">흑백 필터</button>
+        <button class="reset">초기화</button>
+        <button class="download">다운로드</button>
+    </div>
+    <script src="B18.js"></script>
+</body>
+</html>

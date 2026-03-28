@@ -1,0 +1,71 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    display: grid;
+    place-content: center;
+    height: 100vh;
+}
+#wrap{
+    width: 2000px;
+    height: 500px;
+    display: grid;
+    grid-template-columns: repeat(6,1fr);
+    gap: 20px;
+    perspective: 1500px;
+}
+#wrap > div{
+    position: relative;
+    transform-style: preserve-3d;
+    transition: 0.8s ease-in-out;
+}
+#wrap > div:hover .back {
+    box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+}
+.front,.back{
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    align-content: center;
+    position: absolute;
+    top: 0;
+    left: 0;
+    font-size: 28px;
+    color: #fff;
+    backface-visibility: hidden;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+    transition: 0.8s ease-in-out;
+}
+.back{
+    transform: rotateY(180deg);
+}
+#wrap div:nth-child(1) .front{
+    background-image: linear-gradient(-20deg, #e9defa 0%, #fbfcdb 100%);
+}#wrap div:nth-child(1) .back{
+    background-image: linear-gradient(-20deg,  #fbfcdb 0%, #e9defa 100%);
+}#wrap div:nth-child(2) .front{
+    background-image: linear-gradient(to top, #feada6 0%, #f5efef 100%);
+}#wrap div:nth-child(2) .back{
+    background-image: linear-gradient(to bottom, #feada6 0%, #f5efef 100%);
+}#wrap div:nth-child(3) .front{
+    background-image: linear-gradient(to top, #6a85b6 0%, #bac8e0 100%);
+}#wrap div:nth-child(3) .back{
+    background-image: linear-gradient(to bottom, #6a85b6 0%, #bac8e0 100%);
+}#wrap div:nth-child(4) .front{
+    background-image: linear-gradient(to top, #c1dfc4 0%, #deecdd 100%);
+}#wrap div:nth-child(4) .back{
+    background-image: linear-gradient(to bottom, #c1dfc4 0%, #deecdd 100%);
+}#wrap div:nth-child(5) .front{
+    background-image: linear-gradient(to top, #9795f0 0%, #fbc8d4 100%);
+}#wrap div:nth-child(5) .back{
+    background-image: linear-gradient(to bottom, #9795f0 0%, #fbc8d4 100%);
+}#wrap div:nth-child(6) .front{
+    background-image: linear-gradient(to top, #a7a6cb 0%, #8989ba 52%, #8989ba 100%);
+}#wrap div:nth-child(6) .back{
+    background-image: linear-gradient(to bottom, #a7a6cb 0%, #8989ba 52%, #8989ba 100%);
+}
+#wrap > div:hover{
+    transform: scale(1.05) rotateY(180deg);
+}

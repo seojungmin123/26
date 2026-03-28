@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            user-select: none;
+        }
+        body{
+            display: grid;
+            height: 100vh;
+            place-content: center;
+            background-color: #eee;
+        }
+        .calendar{
+            width: 400px;
+            height: 425px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            padding: 30px;
+            text-align: center;
+        }
+        .top{
+            display: flex;
+            justify-content: space-between;
+        }
+        button{
+            width: 25px;
+            height: 25px;
+            background: #fff;
+            border: none;
+            color: blue;
+        }
+        .week,.days{
+            display: grid;
+            grid-template-columns: repeat(7, 1fr);
+            gap: 5px;
+        }
+        .week div{
+            align-content: center;
+            aspect-ratio: 1 / 1;
+        }
+        .days div{
+            border-radius: 5px;
+            aspect-ratio: 1 / 1;
+            align-content: center;
+            &:hover{
+                background-color: #eee;
+            }
+        }
+        .sunday{
+            color: red;
+        }
+        .today{
+            background-color: rgb(57, 132, 230) !important;
+            color: #fff !important;
+        }
+        .saturday{
+            color: blue;
+        }
+        .empty{
+            visibility: hidden;
+        }
+    </style>
+</head>
+<body>
+    <div class="calendar">
+        <div class="top">
+            <button class="prev">◀</button>
+            <div class="display"></div>
+            <button class="next">▶</button>
+        </div>
+        <div class="week">
+            <div>일</div>
+            <div>월</div>
+            <div>화</div>
+            <div>수</div>
+            <div>목</div>
+            <div>금</div>
+            <div>토</div>
+        </div>
+        <div class="days">
+        </div>
+    </div>
+    <script src="B19.js"></script>
+</body>
+</html>

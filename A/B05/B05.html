@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            padding: 50px;
+            text-align: center;
+        }
+        div{
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>배경 색상 선택기</h1>
+    <div>
+        <input type="color"><button>선택</button>
+    </div>
+    <script>
+        const cInput = document.querySelector('input');
+        document.querySelector('button').addEventListener('click',()=>{
+            changeColor();
+        });
+        const changeColor = ()=>{
+            const color = cInput.value;
+            document.querySelector('body').style.backgroundColor = color;
+        }
+    </script>
+</body>
+</html>

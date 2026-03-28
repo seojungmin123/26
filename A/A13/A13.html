@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="A13.css">
+</head>
+<body>
+    <input type="checkbox" id="modal-input">
+    <div class="modal-bg">
+        <div class="modal">
+            <div class="modal-top">
+                <h2>계정 로그인</h2>
+                <label for="modal-input" class="close">X</label>
+                <p>안전한 서비스를 위해 로그인이 필요합니다.</p>
+                <p>계속하려면 아래에 등록된 이메일과 비밀번호를 입력해주세요.</p>
+            </div>
+            <div class="input-container">
+                <label for="email">이메일</label>
+                <input type="email" id="email">
+                <label for="password">비밀번호</label>
+                <input type="password" id="password">
+            </div>
+            <div class="btn-container">
+                <button>로그인</button>
+                <button>계속</button>
+            </div>
+        </div>
+    </div>
+    <label for="modal-input" class="login">
+        로그인
+    </label>
+</body>
+</html>

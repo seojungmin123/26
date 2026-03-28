@@ -1,0 +1,90 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+body{
+    display: grid;
+    place-content: center;
+    height: 100vh;
+}
+#wrap{
+    width: 300px;
+    display: flex;
+    justify-content: space-between;
+}
+#wrap > div{
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+}
+a{
+    text-decoration: none;
+    display: inline-block;
+    color: #000;
+    background-color: #eee;
+    width: 100px;
+    height: 45px;
+    text-align: center;
+    align-content: center;
+    outline: none;
+}
+#wrap > div > div{
+    position: absolute;
+    white-space: nowrap;
+    text-align: center;
+    align-content: center;
+    padding: 8px 15px;
+    border-radius: 15px;
+    background-color: #1f1f1f;
+    color: #ffffff;
+}
+.setting-tooltip{
+    top: -100%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    transition: 0.3s ease-in-out;
+    opacity: 0;
+    visibility: hidden;
+}
+.logout-tooltip{
+    top: 50%;
+    transform: translate(10%,-50%);
+    left: 100%;
+    transition: 0.3s ease-in-out;
+    opacity: 0;
+    visibility: hidden;
+}
+.setting-tooltip::before{
+    content: "";
+    position: absolute;
+    width: 10px;
+    height: 8px;
+    background-color: #1f1f1f;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    clip-path: polygon(0% 0%, 100% 0%, 50% 100%);    
+}
+.logout-tooltip::before{
+    content: "";
+    position: absolute;
+    width: 8px;
+    height: 10px;
+    background-color: #1f1f1f;
+    right: 99%;
+    top: 50%;
+    transform: translateY(-50%);
+    clip-path: polygon(0% 50%, 100% 0%, 100% 100%);    
+}
+.setting:hover ~ .setting-tooltip,
+.setting:focus ~ .setting-tooltip{
+    transform: translate(-50%,-20%);
+    opacity: 1;
+    visibility: visible;
+}
+.logout:hover ~ .logout-tooltip,
+.logout:focus ~ .logout-tooltip{
+    transform: translate(5%,-50%);
+    opacity: 1;
+    visibility: visible;
+}

@@ -1,0 +1,59 @@
+:root{
+    --bg : #fff;
+    --btn : #d6d6d6;
+    --icon : #fff;
+    --font : #000;
+}
+
+[type="checkbox"]{
+    display: none;
+}
+
+body{
+    background-color: var(--bg);
+    transition: 0.5s;
+}
+label{
+    display: inline-block;
+    width: 70px;
+    height: 30px;
+    border-radius: 25px;
+    background-color: var(--btn);
+    transition: 0.5s;
+    position: relative;
+}
+label::after{
+    content: "";
+    width: 25px;
+    height: 25px;
+    background-color: var(--icon);
+    position: absolute;
+    top: 50%;
+    transform: translate(10%,-50%);
+    text-align: center;
+    border-radius: 50%;
+    transition: 0.5s;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+}
+label::before{
+    content: "Light";
+    color: var(--font);
+    position: absolute;
+    top: 50%;
+    transform: translate(100%,-50%);
+    font-size: small;
+    transition: 0.5s;
+}
+#toggle:checked ~ [for="toggle"]::before{
+    content: "Dark";
+    transform: translate(10%,-50%);
+}
+#toggle:checked ~ [for="toggle"]::after{
+    transform: translate(150%,-50%);
+}
+body:has(#toggle:checked){
+    --bg : #222;
+    --btn : rgb(8, 8, 41);
+    --icon : rgb(255, 230, 9);
+    --font : #fff;
+}

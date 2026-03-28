@@ -1,0 +1,144 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    display: grid;
+    place-content: center;
+    height: 100vh;
+    background-color: #eee;
+}
+.cart{
+    width: 800px;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+h2{
+    background-color: #252525;
+    color: #fff;
+    text-align: center; 
+    padding: 20px;
+}
+li{
+    display: flex;
+    background: #fff;
+    border-bottom: 1px solid #ddd;
+    padding: 20px;
+    gap: 20px;
+    align-items: center;
+}
+li img{
+    width: 90px;
+    height: 90px;
+    object-fit: cover;
+    border-radius: 10px;
+}
+.info{
+    width: 390px;
+    font-size: 14px;
+    color: #666;
+}
+.info > span{
+    font-size: 18px;
+    font-weight: bold;
+    color: #000;
+    display: inline-block;
+    margin-bottom: 10px;
+}
+.quantity{
+    width: 85px;
+    display: flex;
+    justify-content: space-between;
+}
+.quantity button{
+    background-color: #fff;
+    border: 1px solid #aaa;
+    width: 25px;
+    height: 25px;
+    border-radius: 5px;
+    color: #000;
+    font-size: 18px;
+}
+.quantity button:hover{
+    background-color: #f0f0f0;
+}
+.quantity button:active{
+    transform: scale(0.95);
+    background-color: #ddd;
+}
+.price{
+    font-size: 18px;
+    font-weight: bold;
+}
+.del{
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background-color: rgb(189, 0, 0);
+    color: #fff;
+    border: none;
+    font-weight: bold;
+
+}
+.del:hover{
+    background-color: rgb(214, 0, 0);
+}
+.del:active{
+    transform: scale(0.95);
+    background-color: rgb(139, 0, 0);
+}
+.cart > div{
+    padding: 30px 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+.cart > div > div{
+    display: flex;
+    justify-content: space-between;
+}
+hr{
+    background-color: #ccc;
+    border: none;
+    height: 1px;
+}
+.cart > div > div strong{
+    font-size: 18px;
+}
+.btns{
+    background-color: #fff;
+    flex-direction: row !important;
+    justify-content: center;
+    align-items: center;
+    height: 90px;
+}
+.btns button{
+    width: 120px;
+    height: 45px;
+    border: none;
+    color: #fff;
+    border-radius: 5px;
+    font-size: 16px;
+}
+.btns button:first-child{
+    background-color: #808080;
+}
+.btns button:last-child{
+    background-color: #559c5f;
+}
+.btns button:first-child:hover{
+    background-color: #949494;
+}
+.btns button:first-child:active{
+    transform: scale(0.95);
+    background-color: #6d6d6d;
+}
+.btns button:last-child:hover{
+    background-color: #70c77b;
+}
+.btns button:last-child:active{
+    transform: scale(0.95);
+    background-color: #4d8b55;
+}

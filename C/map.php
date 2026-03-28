@@ -116,7 +116,6 @@
                 border-bottom:1px solid var(--cream); 
                 white-space:nowrap; 
             }
-
         }
     
         tr:hover td{ background:var(--bg-section); }

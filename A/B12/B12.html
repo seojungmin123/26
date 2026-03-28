@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            text-align: center;
+            background-color: #eee;
+        }
+        .img-container{
+            margin: 20px 0;
+        }
+        img{
+            max-width: 1000px;
+            max-height: 800px;
+            border-radius: 15px;
+            border: 2px solid black;
+            object-fit: cover;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <h1>이미지 필터 편집기</h1>
+    <input type="file" accept="image/*">
+    <div class="img-container">
+        <img src="" alt="">
+    </div>
+    <div class="btns">
+        <button class="grayscale">흑백</button>
+        <button class="sepia">세피아</button>
+        <button class="invert">반전</button>
+        <button class="original">원본</button>
+    </div>
+    <script>
+        const input = document.querySelector('input');
+        const img = document.querySelector('img')
+
+        input.addEventListener('change',()=>{
+            const file = input.files[0];
+            if(file){
+                img.src = URL.createObjectURL(file);
+                img.style.display='inline-block';
+            }else{
+                img.style.display='none';
+            }
+            
+        })
+        
+        document.querySelector('.grayscale').addEventListener('click',() => img.style.filter = 'grayscale(100%)');
+        document.querySelector('.sepia').addEventListener('click',() => img.style.filter = 'sepia(100%)');
+        document.querySelector('.invert').addEventListener('click',() => img.style.filter = 'invert(100%)');
+        document.querySelector('.original').addEventListener('click',() => img.style.filter = 'none');
+    </script>
+</body>
+</html>

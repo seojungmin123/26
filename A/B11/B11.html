@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            text-align: center;
+            background: #eee;
+        }
+        .stop{
+            display: none;
+        }
+        .continue{
+            display: none;
+        }
+        .time{
+            font-size: 30px;
+        }
+    </style>
+</head>
+<body>
+    <h1>스톱워치</h1>
+    <div class="time">00:00:000</div>
+    <div class="btns">
+        <button class="start">시작</button>
+        <button class="stop">중지</button>
+        <button class="continue">계속</button>
+        <button class="reset">초기화</button>
+    </div>
+
+    <script>
+        const container = document.querySelector('.time');
+        const startBtn = document.querySelector('.start');
+        const stopBtn = document.querySelector('.stop');
+        const resetBtn = document.querySelector('.reset');
+        const continueBtn = document.querySelector('.continue');
+
+        let startTime = 0;
+        let elapsedTime = 0;
+        let timer;
+
+        const formatTime = (time)=>{
+            let min = Math.floor(time / 60000).toString().padStart(2,'0');
+            let sec = Math.floor((time % 60000) / 1000).toString().padStart(2,'0');
+            let ms = Math.floor(time % 1000).toString().padStart(3,'0');
+            
+            return `${min}:${sec}:${ms}`;
+        }
+        
+        startBtn.addEventListener('click',()=>{
+            startTime = Date.now();
+            timer = setInterval(()=>{
+                elapsedTime = Date.now() - startTime;
+                container.innerHTML = formatTime(elapsedTime); 
+            },10)
+            startBtn.style.display = 'none';
+            continueBtn.style.display = 'none';
+            stopBtn.style.display = 'inline-block';
+        })
+
+        continueBtn.addEventListener('click',()=>{
+            startTime = Date.now() - elapsedTime;
+            timer = setInterval(()=>{
+                elapsedTime = Date.now() - startTime;
+                container.innerHTML = formatTime(elapsedTime); 
+            },10)
+            continueBtn.style.display = 'none';
+            stopBtn.style.display = 'inline-block';
+        })
+
+        stopBtn.addEventListener('click',()=>{
+            clearInterval(timer);
+            continueBtn.style.display = 'inline-block';
+            stopBtn.style.display = 'none';
+        })
+
+        resetBtn.addEventListener('click',()=>{
+            clearInterval(timer);
+            elapsedTime = 0;
+            container.innerHTML = '00:00:000'; 
+            startBtn.style.display = 'inline-block';
+            stopBtn.style.display = 'none';
+            continueBtn.style.display = 'none';
+        })
+
+    </script>
+</body>
+</html>
