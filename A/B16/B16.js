@@ -6,11 +6,9 @@ const loadData = ()=>{
     .then(data=>{
         todos = data.todos;
 
-        const counts = countTodo(todos);
-
-        document.querySelector('#totalCount').textContent = counts.total;
-        document.querySelector('#completedCount').textContent = counts.complete;
-        document.querySelector('#pendingCount').textContent = counts.pending;
+        document.querySelector('#totalCount').textContent = todos.length;;
+        document.querySelector('#completedCount').textContent = todos.filter(row => row.completed == true).length;
+        document.querySelector('#pendingCount').textContent = todos.filter(row => row.completed == false).length;
 
         createItem(todos);
 
@@ -37,14 +35,6 @@ const loadData = ()=>{
 }
 
 window.onload = loadData;
-
-const countTodo = (todos)=>{
-    const total = todos.length;
-    const complete = todos.filter(row => row.completed == true).length;
-    const pending = todos.filter(row => row.completed == false).length;
-
-    return {total, complete, pending};
-}
 
 const createItem = (todos) =>{
     document.querySelector('.todo-list').innerHTML = "";

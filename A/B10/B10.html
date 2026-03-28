@@ -46,7 +46,7 @@
         canvas.addEventListener('mousemove',(e)=>{
             if(isDrawing) draw(e.offsetX,e.offsetY);
         })
-        canvas.addEventListener('mouseup',(e)=>{
+        window.addEventListener('mouseup',(e)=>{
             isDrawing = false;
         })
 

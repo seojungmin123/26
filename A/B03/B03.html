@@ -35,6 +35,7 @@
         };
         document.addEventListener('keydown',(e) =>{
             if (e.key in keys) keys[e.key]=true;
+            move();
         })
         document.addEventListener('keyup',(e) =>{
             if (e.key in keys) keys[e.key]=false;
@@ -54,9 +55,7 @@
             if (t < -maxT) t = -maxT;
 
             square.style.transform = `translate(calc(-50% + ${l}px),calc(-50% + ${t}px))`;
-            requestAnimationFrame(move);
         }
-        requestAnimationFrame(move);
     </script>
 </body>
 </html>

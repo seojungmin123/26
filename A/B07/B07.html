@@ -60,7 +60,7 @@
             })
         })
         const ck = ()=>{
-            const all = Array.from(inputs).every(e =>e.value.length === 1);
+            const all = [...inputs].every(e =>e.value.length === 1);
             button.disabled = !all;
         }
     </script>
