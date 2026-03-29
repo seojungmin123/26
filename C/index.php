@@ -220,7 +220,7 @@
     <!-- 프로그램 -->
     <section id="program">
         <h2 class="section-title">프로그램</h2>
-            <div class="section-inner">
+            <div class="section-inner f gap-05">
                 <!-- 프로그램 카드 -->
                 <label class="program-card" for="program-modal1">
                   <img src="프로그램/1.jpg" alt="프로그램1" title="프로그램1">
@@ -463,26 +463,6 @@
                         <div class="deco"></div>
 					</div>
 				</div>
-				<div class="book-item">
-					<img src="추천도서/추천도서2.jpg" alt="추천도서2" title="추천도서2">
-					<div class="book-info">
-                        <h2>02</h2>
-						<h3>여름이 반짝</h3>
-						<p></p>
-						<span>지은이 : 김수빈</span>
-                        <div class="deco"></div>
-					</div>
-				</div>
-				<div class="book-item">
-					<img src="추천도서/추천도서3.jpg" alt="추천도서3" title="추천도서3">
-					<div class="book-info">
-                        <h2>03</h2>
-						<h3>사랑 한 꼬집을 넣으면</h3>
-						<p></p>
-						<span>지은이 : 배리 팀스</span>
-                        <div class="deco"></div>
-					</div>
-				</div>
 			</div>
 
             <div class="book-slider f book-slider2">
@@ -563,26 +543,6 @@
 						<h3>나에게 나다움을 주기로 했다</h3>
 						<p>나다움을 찾아가는 다섯 가지 마음 습관</p>
 						<span>지은이 : 고정욱</span>
-                        <div class="deco"></div>
-					</div>
-				</div>
-				<div class="book-item">
-					<img src="추천도서/추천도서2.jpg" alt="추천도서2" title="추천도서2">
-					<div class="book-info">
-                        <h2>02</h2>
-						<h3>여름이 반짝</h3>
-						<p></p>
-						<span>지은이 : 김수빈</span>
-                        <div class="deco"></div>
-					</div>
-				</div>
-				<div class="book-item">
-					<img src="추천도서/추천도서3.jpg" alt="추천도서3" title="추천도서3">
-					<div class="book-info">
-                        <h2>03</h2>
-						<h3>사랑 한 꼬집을 넣으면</h3>
-						<p></p>
-						<span>지은이 : 배리 팀스</span>
                         <div class="deco"></div>
 					</div>
 				</div>

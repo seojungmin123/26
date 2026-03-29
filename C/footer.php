@@ -2,8 +2,8 @@
     <footer class="w-100">
         <div class="footer-inner m0a w-100 h-100 f jsa aic">
             <div class="footer-left f-c gap-1">
-                <h1 class="acc tac"><a href="index.php" class="logo">스킬스북<br>도서관</a></h1>
-                <div class="sns f gap-1">
+                <a href="index.php" class="logo tac acc"><img src="images/logo2.png" alt=""></a>
+                <div class="sns f jsa">
                     <a href="#"><img src="images/social icon1.png" alt="sns1" title="sns1"></a>
                     <a href="#"><img src="images/social icon2.png" alt="sns2" title="sns2"></a>
                     <a href="#"><img src="images/social icon3.png" alt="sns3" title="sns3"></a>

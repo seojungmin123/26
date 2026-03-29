@@ -58,7 +58,7 @@
         <input type="checkbox" id="hamburger">
         <div class="header-inner w-100 h-100 f jsb aic m0a">
             <!-- 로고 -->
-            <h1 class="tac acc"><a href="index.php">스킬스북<br>도서관</a></h1>
+            <a href="index.php" class="logo tac acc"><img src="images/logo.png" alt=""></a>
 
             <!-- 네비게이션 -->
             <ul class="main f h-100">

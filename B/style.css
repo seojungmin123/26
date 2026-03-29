@@ -48,6 +48,9 @@ a{color: inherit;text-decoration: none;}
 section{
     width: 100%;
     padding: 5em 2em;
+    &:first-of-type{
+        margin-top: 6.25em;
+    }
 }
 .section-title{
     width: 100%;
@@ -104,7 +107,7 @@ input:checked + .modal-bg{   /* modal-bg > modal-box > modal-header,modal-body,m
     width: 100%;
     height: 100%;
     background: rgba(0,0,0,0.3); 
-    backdrop-filter: blur(6px); /* 주변흐리게 */
+    backdrop-filter: blur(2px); /* 주변흐리게 */
     justify-content: center;
     align-items: center;
     z-index: 1000;
@@ -212,7 +215,12 @@ header{
         font-size: 1.6em;
     }
 }
-
+.logo{
+    height: 6.25em;
+    img{
+        height: 75%;
+    }
+}
 /* 유틸메뉴 */
 .util{
     button{
@@ -426,7 +434,6 @@ header{
 /*                 비주얼                */
 /* ===================================== */
 #visual{
-    margin-top: 6.25em;
     max-width: 100%;
     padding: 0;
     height: 40em;
@@ -663,18 +670,15 @@ header{
 #program{
     background-color: var(--bg-section);
 }
-#program > .section-inner{
-    display: grid;
-    grid-template-columns: repeat(4,1fr); /* repeat(3,1fr) repeat(2,1fr) */
-    gap: 2em;
-    max-width: 1200px;
-}
 .program-card{
+    flex: 1;
+    height: 40em;
     border-radius: 10px;
     overflow: hidden;
     transition: 0.3s;
     position: relative;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    transition: 0.3s ease-in-out;
     img{
         width: 100%;
         height: 100%;
@@ -682,7 +686,7 @@ header{
         object-position: center 10%;
     }
     &:hover{
-        transform: scale(1.1);
+        flex: 4;
     }
     .card-overlay{ /* 호버시 나올 배경 */
         padding: 1em;
@@ -710,11 +714,6 @@ header{
 }
 #program .modal-header::after{content: "PROGRAM"; left: 4em;}
 
-#program .section-inner:hover .program-card:not(:hover){  /* 컨테이너 호버시 호버중이 아닌 카드 축소 */
-  transform: scale(0.95);
-  opacity: 0.7;
-}
-
 /* ===================================== */
 /*                 추천도서               */
 /* ===================================== */
@@ -729,7 +728,7 @@ header{
         display: none;
     }
     .book-slider{
-        width: 1000%;
+        width: 800%;
         transition: 0.3s ease-in-out;
         position: absolute;
         .book-item{
@@ -873,37 +872,40 @@ header{
     display: block;
 }
 
-#book1:checked ~ .book-slider1 { left: 0%; }
-#book3:checked ~ .book-slider1 { left: -100%; }
-#book5:checked ~ .book-slider1 { left: -200%;}
-#book7:checked ~ .book-slider1 { left: -300%;}
+#book1:checked ~ .book-slider1 { left: -600%; }
+#book1:checked ~ .book-slider2 { left: -600%; }
+#book3:checked ~ .book-slider1 { left: 0%; }
+#book5:checked ~ .book-slider1 { left: -100%;}
+#book7:checked ~ .book-slider1 { left: -200%;}
+#book9:checked ~ .book-slider1 { left: -300%;}
+#book11:checked ~ .book-slider1 { left: -400%;}
+#book13:checked ~ .book-slider1 { left: -500%;}
 
-#book9:checked ~ .book-slider1 { left: -400%; visibility: visible; z-index: 1;}
-#book9:checked ~ .book-slider2 { left: -500%; visibility: hidden; transition: 0.005s;}
+#book2:checked ~ .book-slider1 { left: -100%; }
+#book4:checked ~ .book-slider1 { left: -200%; }
+#book6:checked ~ .book-slider1 { left: -300%; }
+#book8:checked ~ .book-slider1 { left: -400%; }
+#book10:checked ~ .book-slider1 { left: -500%;}
+#book12:checked ~ .book-slider1 { left: -600%;}
+#book12:checked ~ .book-slider2 { left: -600%;}
+#book14:checked ~ .book-slider1 { left: 0%; }
+#book14:checked ~ .book-slider2 { left: -700%; }
 
-#book11:checked ~ .book-slider1 { left: -500%; visibility: hidden; transition: 0.005s;}
-#book11:checked ~ .book-slider2 { left: -500%; visibility: visible; z-index: 1;}
+#book1:checked ~ .book-slider2,
+#book2:checked ~ .book-slider1,
+#book13:checked ~ .book-slider1,
+#book14:checked ~ .book-slider2{
+    z-index: 1;
+    visibility: visible;
+}
 
-#book13:checked ~ .book-slider1 { left: -600%; visibility: hidden; transition: 0.005s;}
-#book13:checked ~ .book-slider2 { left: -600%; visibility: visible; z-index: 1;}
-
-
-
-#book2:checked ~ .book-slider1 { left: -200%; }
-#book4:checked ~ .book-slider1 { left: -300%; }
-#book6:checked ~ .book-slider1 { left: -400%; }
-
-#book8:checked ~ .book-slider1 { left: -500%; }
-#book8:checked ~ .book-slider2 { left: -500%; }
-
-#book10:checked ~ .book-slider1 { left: 0%; visibility: hidden; transition: 0.005s;}
-#book10:checked ~ .book-slider2 { left: -600%; visibility: visible; z-index: 1;}
-
-#book12:checked ~ .book-slider1 { left: 0%; visibility: hidden; transition: 0.005s; }
-#book12:checked ~ .book-slider2 { left: -700%; visibility: visible; z-index: 1;}
-
-#book14:checked ~ .book-slider1 { left: -100%; visibility: visible; z-index: 1;}
-#book14:checked ~ .book-slider2 { left: -600%; visibility: hidden; transition: 0.005s;}
+#book1:checked ~ .book-slider1,
+#book2:checked ~ .book-slider2,
+#book13:checked ~ .book-slider2,
+#book14:checked ~ .book-slider1{
+    transition: 0.0005s;
+    visibility: hidden;
+}
 
 .book-count{
     font-size: 1.1em;
@@ -1039,9 +1041,6 @@ footer{
     #favorite{
         grid-template-columns: repeat(3, 1fr);
     }
-    #program .section-inner{
-        grid-template-columns: repeat(3,1fr);
-    }
     .book-item{
         font-size: 12px;
         margin: 0 !important;
@@ -1105,11 +1104,6 @@ footer{
 
     #favorite{
         grid-template-columns: repeat(2, 1fr);
-    }
-    
-    #program .section-inner{
-        grid-template-columns: repeat(2,1fr);
-        height: 80em;
     }
 
     .footer-inner{
