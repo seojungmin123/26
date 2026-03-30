@@ -924,21 +924,21 @@ header{
     }
 }
 
-#book1:checked ~ .book-controls .book-count > span:nth-child(1),
-#book3:checked ~ .book-controls .book-count > span:nth-child(2),
-#book5:checked ~ .book-controls .book-count > span:nth-child(3),
-#book7:checked ~ .book-controls .book-count > span:nth-child(4),
-#book9:checked ~ .book-controls .book-count > span:nth-child(5),
-#book11:checked ~ .book-controls .book-count > span:nth-child(6),
-#book13:checked ~ .book-controls .book-count > span:nth-child(7),
+#book1:checked ~ .book-controls .book-count > span:nth-child(7),
+#book3:checked ~ .book-controls .book-count > span:nth-child(1),
+#book5:checked ~ .book-controls .book-count > span:nth-child(2),
+#book7:checked ~ .book-controls .book-count > span:nth-child(3),
+#book9:checked ~ .book-controls .book-count > span:nth-child(4),
+#book11:checked ~ .book-controls .book-count > span:nth-child(5),
+#book13:checked ~ .book-controls .book-count > span:nth-child(6),
 
-#book2:checked ~ .book-controls .book-count > span:nth-child(3),
-#book4:checked ~ .book-controls .book-count > span:nth-child(4),
-#book6:checked ~ .book-controls .book-count > span:nth-child(5),
-#book8:checked ~ .book-controls .book-count > span:nth-child(6),
-#book10:checked ~ .book-controls .book-count > span:nth-child(7),
-#book12:checked ~ .book-controls .book-count > span:nth-child(1),
-#book14:checked ~ .book-controls .book-count > span:nth-child(2)
+#book2:checked ~ .book-controls .book-count > span:nth-child(2),
+#book4:checked ~ .book-controls .book-count > span:nth-child(3),
+#book6:checked ~ .book-controls .book-count > span:nth-child(4),
+#book8:checked ~ .book-controls .book-count > span:nth-child(5),
+#book10:checked ~ .book-controls .book-count > span:nth-child(6),
+#book12:checked ~ .book-controls .book-count > span:nth-child(7),
+#book14:checked ~ .book-controls .book-count > span:nth-child(1)
 {
     display: block;
 }
