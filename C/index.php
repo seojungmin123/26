@@ -366,9 +366,9 @@
 	<section id="recommend">
 		<h2 class="section-title">추천도서</h2>
 		<div class="section-inner f-c gap-1">
-			<input type="radio" name="book" id="book1" checked>
+			<input type="radio" name="book" id="book1">
 			<input type="radio" name="book" id="book2">
-			<input type="radio" name="book" id="book3">
+			<input type="radio" name="book" id="book3" checked>
 			<input type="radio" name="book" id="book4">
 			<input type="radio" name="book" id="book5">
 			<input type="radio" name="book" id="book6">
